@@ -1,6 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer';
-import '@appreciated/color-picker/color-picker.js';
-import ColorPickerUtils from '@appreciated/color-picker/src/utils/color-picker-utils';
+import '@datadobi/color-picker/color-picker.js';
+import ColorPickerUtils from '@datadobi/color-picker/src/utils/color-picker-utils';
 import '@polymer/iron-media-query/iron-media-query.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@vaadin/vaadin-text-field';
@@ -88,7 +88,7 @@ class ColorPickerField extends PolymerElement {
       :host(:not([readonly])) [part="select-color-button"]:hover [part="select-color-button-icon"] {
         opacity: 1;
       }
-      
+
       :host([theme~="color-picker-field-overlay"]) [part="overlay"] {
         max-height: unset;
       }
@@ -111,17 +111,17 @@ class ColorPickerField extends PolymerElement {
 
       [part="footer"] {
         display: flex;
-        justify-content: flex-end; 
+        justify-content: flex-end;
         width: 100%;
       }
-      
-    </style>  
+
+    </style>
     <vaadin-text-field style="flex-grow: 1" value="{{value}}" id="text-field" disabled="{{disabled}}" readonly="{{readonly}}">
       <span part="select-color-button" slot="prefix">
         <vaadin-context-menu close-on="_closeColorPickerPopUp" open-on="click" theme="color-picker-field-overlay">
             <template>
               <vaadin-vertical-layout theme="spacing padding" part="popup-content">
-                  <color-picker disable-alpha="[[disableAlpha]]" disable-hex="[[disableHex]]"
+                  <color-picker disable-alpha="[[disableAlpha]]" disable-hex="[[disableHex]]" disable-slslider="[[disableSLSlider]]"
                                 disable-hsl="[[disableHsl]]"
                                 disable-rgb="[[disableRgb]]"
                                 last-used-format="{{lastUsedFormat}}"
@@ -226,6 +226,13 @@ class ColorPickerField extends PolymerElement {
         type: Boolean,
         value: false,
         observer: '_updateInputPattern'
+      },
+      /**
+       * Set to true to disable the SL Slider canvas
+       */
+      disableSLSlider: {
+        type: Boolean,
+        value: true
       },
       /**
        * Set to true to disable **alpha** input and **alpha** slider.
