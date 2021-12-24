@@ -1,6 +1,6 @@
 {
   "name": "@datadobi/color-picker-field",
-  "version": "2.0.0-beta.5",
+  "version": "2.0.0-beta.5-datadobi1",
   "description": "color-picker-field",
   "main": "color-picker-field.js",
   "repository": "datadobi/color-picker-field",
